@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 10:04:11 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/12 11:28:37 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:59:59 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	rra(t_stack *stack, int print)
 {
-	stack_node	*temp;
-	stack_node	*temp2;
+	t_stack_node	*temp;
+	t_stack_node	*temp2;
 
 	temp = stack->head_a;
 	while (temp->next->next)
@@ -32,8 +32,8 @@ void	rra(t_stack *stack, int print)
 
 void	rrb(t_stack *stack, int print)
 {
-	stack_node	*temp;
-	stack_node	*temp2;
+	t_stack_node	*temp;
+	t_stack_node	*temp2;
 
 	temp = stack->head_a;
 	while (temp->next->next)
@@ -50,7 +50,7 @@ void	rrb(t_stack *stack, int print)
 
 void	rrr(t_stack *stack)
 {
-	rra(stack,0);
-	rrb(stack,0);
+	rra(stack, 0);
+	rrb(stack, 0);
 	ft_putstr_fd("rrr\n",1);
 }

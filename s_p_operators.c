@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:55:51 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/12 11:30:36 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/07/14 22:25:49 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	sa(t_stack *stack, int print)
 		ft_putstr_fd("sa\n",1);
 }
 
-void	sb(t_stack *stack,	int	print)
+void	sb(t_stack *stack, int print)
 {
 	int	temp;
 	int	temp2;
@@ -46,7 +46,7 @@ void	sb(t_stack *stack,	int	print)
 		ft_putstr_fd("sb\n",1);
 }
 
-void	ss(t_stack *stack,	int print)
+void	ss(t_stack *stack)
 {
 	sa(stack, 0);
 	sb(stack, 0);

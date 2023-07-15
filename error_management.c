@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.h                                            :+:      :+:    :+:   */
+/*   error_management.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/12 17:00:31 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/12 17:00:37 by bortakuz         ###   ########.fr       */
+/*   Created: 2023/07/12 16:22:47 by bortakuz          #+#    #+#             */
+/*   Updated: 2023/07/12 16:48:28 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STACK_H
-# define STACK_H
+#include "push_swap.h"
+#include <stdlib.h>
 
-typedef struct node{
-	int				data;
-	struct node		*next;
-}t_stack_node;
-
-t_stack_node	*new_node(int data);
-int				is_empty(t_stack_node *root);
-void			push(t_stack_node **root, int data);
-int				pop(t_stack_node **root);
-int				peek(t_stack_node *root);
-#endif
+void	error(t_stack *stack)
+{
+	free(stack);
+	ft_putstr_fd("Error\n",1);
+	exit(0);
+}

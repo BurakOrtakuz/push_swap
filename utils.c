@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:17:20 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/12 11:24:28 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/07/15 00:02:15 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,17 @@ void	ft_putstr_fd(char *s, int fd)
 		ft_putchar_fd(s[i], fd);
 		i++;
 	}
+}
+
+int	digit_calculate(int data)
+{
+	int	i;
+
+	i = 0;
+	while (data != 0)
+	{
+		data /= 10;
+		i++;
+	}
+	return (i);
 }

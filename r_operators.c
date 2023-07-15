@@ -6,16 +6,17 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:16:14 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/12 11:26:09 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/07/14 23:55:52 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 void	ra(t_stack *stack, int print)
 {
-	stack_node	*temp;
-	stack_node	*temp2;
+	t_stack_node	*temp;
+	t_stack_node	*temp2;
 
 	temp2 = stack->head_a;
 	temp = stack->head_a;
@@ -25,20 +26,19 @@ void	ra(t_stack *stack, int print)
 		temp = temp->next;
 	}
 	temp->next = temp2;
-	temp2->next = 0;
+	temp2->next = NULL;
 	if (print)
 		ft_putstr_fd("ra\n",1);
 }
 
 void	rb(t_stack *stack, int print)
 {
-	stack_node	*temp;
-	stack_node	*temp2;
+	t_stack_node	*temp;
+	t_stack_node	*temp2;
 
 	temp2 = stack->head_b;
 	temp = stack->head_b;
 	stack->head_a = stack->head_b->next;
-
 	while (temp->next)
 	{
 		temp = temp->next;
