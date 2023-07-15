@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: burak <burak@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:20:29 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/15 00:03:33 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/07/15 20:56:38 by burak            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "stack.h"
+# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -23,8 +24,9 @@ typedef struct s_stack
 
 int		check_bits(int data, int digit);
 void	push_swap(t_stack *stack, int max_digit);
-void	print_all(t_stack *stack);
+void	print_all(t_stack *stack, int digit);
 void	error(t_stack *stack);
+void	printBits(size_t const size, void const *const ptr);
 
 void	sa(t_stack *stack, int print);
 void	sb(t_stack *stack, int print);

@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: burak <burak@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:57:29 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/15 00:04:33 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/07/15 20:53:15 by burak            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "push_swap.h"
 #include <stdlib.h>
+
 
 int	main(int ac, char **av)
 {
@@ -40,5 +41,5 @@ int	main(int ac, char **av)
 		av++;
 	}
 	push_swap(stack, digit_max);
-	print_all(stack);
+	print_all(stack,-1);
 }
