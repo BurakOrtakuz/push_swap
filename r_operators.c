@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   r_operators.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: burak <burak@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:16:14 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/14 23:55:52 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/07/15 23:03:10 by burak            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	rb(t_stack *stack, int print)
 
 	temp2 = stack->head_b;
 	temp = stack->head_b;
-	stack->head_a = stack->head_b->next;
+	stack->head_b = stack->head_b->next;
 	while (temp->next)
 	{
 		temp = temp->next;

@@ -6,12 +6,41 @@
 /*   By: burak <burak@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:52:05 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/15 21:26:36 by burak            ###   ########.fr       */
+/*   Updated: 2023/07/26 14:31:39 by burak            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "stdio.h"
+
+void	stack_b_emptyier(t_stack *stack,  int digit)
+{
+	int				i;
+	int				j;
+	t_stack_node	*temp;
+
+	temp = stack->head_b;
+	i = 0;
+	while (temp)
+	{
+		if (temp->data >= digit)
+		{
+			j = i + 1;
+			while (--j > 0 && temp->next)
+				rb(stack, 1);
+			pa(stack);
+			if (!stack->head_b)
+				break ;
+			j = i + 1;
+			while (--j > 0 && temp->next)
+				rrb(stack, 1);
+			temp = stack->head_b;
+		}
+		else
+			temp = temp->next;
+		i++;
+	}
+}
 
 int	check_bits(int data, int digit)
 {
@@ -38,7 +67,6 @@ int	len(t_stack_node *head)
 void	push_swap(t_stack *stack, int max_digit)
 {
 	int				digit;
-	t_stack_node	*temp;
 	int				i;
 	int				j;
 	int				lenght;
@@ -55,17 +83,11 @@ void	push_swap(t_stack *stack, int max_digit)
 			{
 				pb(stack);
 			}
-			else
-			{
-				if (stack->head_a->next)
-					ra(stack, 1);
-			}
+			else if (stack->head_a->next)
+				ra(stack, 1);
 			i++;
 		}
-		while (stack->head_b)
-		{
-			pa(stack);
-		}
+		stack_b_emptyier(stack,j);
 		j++;
 		digit *= 2;
 	}
@@ -79,11 +101,10 @@ void	print_all(t_stack *stack, int digit)
 	temp_a = stack->head_a;
 	temp_b = stack->head_b;
 	printf("  A                B\n-----            -----\n");
-	if (temp_a)
+	if (temp_a && digit > 0)
 	{
 		printBits(sizeof(int), &temp_a->data);
-		if (digit > 0)
-			printf(" %d %d\n",temp_a->data, check_bits(temp_a->data, digit));
+		printf(" %d %d\n",temp_a->data, check_bits(temp_a->data, digit));
 	}
 
 	while (temp_a || temp_b)

@@ -6,7 +6,7 @@
 /*   By: burak <burak@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:20:29 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/15 20:56:38 by burak            ###   ########.fr       */
+/*   Updated: 2023/07/22 15:38:55 by burak            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ void	push_swap(t_stack *stack, int max_digit);
 void	print_all(t_stack *stack, int digit);
 void	error(t_stack *stack);
 void	printBits(size_t const size, void const *const ptr);
+int		biggest_bit(int data);
+void	stack_b_emptyier(t_stack *stack, int digit);
+int		len(t_stack_node *head);
 
 void	sa(t_stack *stack, int print);
 void	sb(t_stack *stack, int print);

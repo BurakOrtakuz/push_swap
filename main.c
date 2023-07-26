@@ -6,7 +6,7 @@
 /*   By: burak <burak@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:57:29 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/15 20:53:15 by burak            ###   ########.fr       */
+/*   Updated: 2023/07/26 14:29:35 by burak            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,15 @@
 #include "push_swap.h"
 #include <stdlib.h>
 
-
 int	main(int ac, char **av)
 {
+	/*
+	while(*++av)
+	{
+		int number = ft_atoi(*av);
+		printf(" %d\n", biggest_bit(number));	
+	}
+	*/
 	t_stack_node	*j;
 	t_stack			*stack;
 	int				digit_max;
@@ -25,7 +31,8 @@ int	main(int ac, char **av)
 	stack = (t_stack *)malloc(sizeof(t_stack));
 	if (ac == 2)
 		av = ft_split(av[1], ' ');
-	av++;
+	else
+		av++;
 	while (*av)
 	{
 		if (digit_max < digit_calculate(ft_atoi(*av)))
@@ -40,6 +47,7 @@ int	main(int ac, char **av)
 		push(&stack->head_a, ft_atoi(*av));
 		av++;
 	}
+	//print_all(stack, -1);
 	push_swap(stack, digit_max);
-	print_all(stack,-1);
+	//print_all(stack, -1);
 }
