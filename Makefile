@@ -1,4 +1,4 @@
-NAME = push_swap_library.a
+NAME = push_swap
 FLAG = -Wall -Wextra -Werror
 SRC = stack.c \
 		r_operators.c \
@@ -15,8 +15,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 $(NAME):
 	gcc $(FLAG) -c $(SRC)
-	ar rc $(NAME) *.o
-	gcc $(FLAG) $(NAME) main.c
+	gcc $(FLAG) $(OBJ) main.c -o $(NAME) 
 clean:
 	/bin/rm -f  *.o
 fclean: clean

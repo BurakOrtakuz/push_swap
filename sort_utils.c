@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 16:20:00 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/27 18:51:56 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/07/28 01:17:10 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,14 @@ int	is_sorted(t_stack_node *head)
 	int				temp_order;
 	t_stack_node	*temp;
 
-	temp_order = head->order - 1;
+	temp_order = head->order;
 	temp = head;
-	while (++temp_order == temp->order && temp->next)
+	while (temp_order == temp->order && temp->next)
+	{
 		temp = temp->next;
-	if (temp->next)
+		temp_order++;
+	}
+	if (temp->next || temp->order != temp_order)
 		return (0);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:17:20 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/27 18:53:59 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/07/28 01:58:05 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,53 +69,4 @@ int	digit_calculate(int data)
 		i++;
 	}
 	return (i);
-}
-
-void printBits(size_t const size, void const * const ptr)
-{
-    unsigned char *b = (unsigned char*) ptr;
-    unsigned char byte;
-    int i, j;
-    
-    for (i = size-1; i >= 0; i--) {
-        for (j = 7; j >= 0; j--) {
-            byte = (b[i] >> j) & 1;
-            printf("%u", byte);
-        }
-    }
-}
-
-void	print_all(t_stack *stack, int digit)
-{
-	t_stack_node	*temp_a;
-	t_stack_node	*temp_b;
-
-	temp_a = stack->head_a;
-	temp_b = stack->head_b;
-	printf("  A                B\n-----            -----\n");
-	if (temp_a && digit > 0)
-	{
-		printBits(sizeof(int), &temp_a->data);
-		printf(" %d %d\n",temp_a->data, check_bits(temp_a->data, digit));
-	}
-
-	while (temp_a || temp_b)
-	{
-		if (temp_a)
-		{
-			printf("%3d %3d",temp_a->data, temp_a->order);		
-			temp_a = temp_a->next;
-		}
-		else
-		{
-			printf("       ");
-		}
-		if (temp_b)
-		{
-			printf("%13d %3d",temp_b->data, temp_b->order);
-			temp_b = temp_b->next;
-		}
-		printf("\n");
-	}
-	printf("\n");
 }

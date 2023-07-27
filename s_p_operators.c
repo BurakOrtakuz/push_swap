@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:55:51 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/27 00:06:17 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/07/28 01:58:16 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void	sa(t_stack *stack, int print)
 	order2 = stack->head_a->next->order;
 	pop(&stack->head_a);
 	pop(&stack->head_a);
-	push(&stack->head_b, temp, order);
-	push(&stack->head_b, temp2, order2);
+	push(&stack->head_a, temp, order);
+	push(&stack->head_a, temp2, order2);
 	if (print)
-		ft_putstr_fd("sa\n",1);
+		ft_putstr_fd("sa\n", 1);
 }
 
 void	sb(t_stack *stack, int print)
@@ -51,14 +51,14 @@ void	sb(t_stack *stack, int print)
 	push(&stack->head_b, temp, order);
 	push(&stack->head_b, temp2, order2);
 	if (print)
-		ft_putstr_fd("sb\n",1);
+		ft_putstr_fd("sb\n", 1);
 }
 
 void	ss(t_stack *stack)
 {
 	sa(stack, 0);
 	sb(stack, 0);
-	ft_putstr_fd("ss\n",1);
+	ft_putstr_fd("ss\n", 1);
 }
 
 void	pa(t_stack *stack)
@@ -67,7 +67,7 @@ void	pa(t_stack *stack)
 		return ;
 	push(&stack->head_a, peek(stack->head_b), stack->head_b->order);
 	pop(&stack->head_b);
-	ft_putstr_fd("pa\n",1);
+	ft_putstr_fd("pa\n", 1);
 }
 
 void	pb(t_stack *stack)
@@ -76,5 +76,5 @@ void	pb(t_stack *stack)
 		return ;
 	push(&stack->head_b, peek(stack->head_a), stack->head_a->order);
 	pop(&stack->head_a);
-	ft_putstr_fd("pb\n",1);
+	ft_putstr_fd("pb\n", 1);
 }

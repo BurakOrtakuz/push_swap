@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   r_operators.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: burak <burak@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:16:14 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/15 23:03:10 by burak            ###   ########.fr       */
+/*   Updated: 2023/07/28 01:56:52 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ra(t_stack *stack, int print)
 	temp->next = temp2;
 	temp2->next = NULL;
 	if (print)
-		ft_putstr_fd("ra\n",1);
+		ft_putstr_fd("ra\n", 1);
 }
 
 void	rb(t_stack *stack, int print)
@@ -46,12 +46,12 @@ void	rb(t_stack *stack, int print)
 	temp->next = temp2;
 	temp2->next = 0;
 	if (print)
-		ft_putstr_fd("rb\n",1);
+		ft_putstr_fd("rb\n", 1);
 }
 
 void	rr(t_stack *stack)
 {
 	ra(stack, 0);
 	rb(stack, 0);
-	ft_putstr_fd("rr\n",1);
+	ft_putstr_fd("rr\n", 1);
 }

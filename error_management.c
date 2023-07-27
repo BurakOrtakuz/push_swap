@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 16:22:47 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/12 16:48:28 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/07/28 01:58:27 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@
 void	error(t_stack *stack)
 {
 	free(stack);
-	ft_putstr_fd("Error\n",1);
+	ft_putstr_fd("Error\n", 1);
 	exit(0);
 }

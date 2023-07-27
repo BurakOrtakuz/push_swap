@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:52:05 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/27 21:58:11 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/07/28 01:04:53 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,31 @@ int	selection_helper(t_stack *stack, int i)
 		pb(stack);
 	}
 	return (1);
+}
+
+void	small_sort(t_stack *stack)
+{
+	if (is_sorted(stack->head_a))
+		return ;
+	if (stack->head_a->order == 0)
+	{
+		pb(stack);
+		ra(stack, 1);
+		pa(stack);
+	}
+	else if (stack->head_a->order == 1)
+	{
+		if (stack->head_a->next->order == 0)
+			sa(stack, 1);
+		if (is_sorted(stack->head_a))
+			return ;
+		rra(stack, 1);
+	}
+	else
+	{
+		ra(stack, 1);
+		if (is_sorted(stack->head_a))
+			return ;
+		sa(stack, 1);
+	}
 }

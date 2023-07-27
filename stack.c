@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 16:52:22 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/27 00:18:12 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/07/28 02:05:53 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,6 @@ t_stack_node	*new_node(int data, int order)
 	node->next = NULL;
 	node->order = order;
 	return (node);
-}
-
-int	is_empty(t_stack_node *root)
-{
-	return (!root);
 }
 
 void	push(t_stack_node **root, int data, int order)
@@ -56,9 +51,9 @@ void	push_top(t_stack_node **root, int data, int order)
 int	pop(t_stack_node **root)
 {
 	t_stack_node	*temp;
-	int			popped;
+	int				popped;
 
-	if (is_empty(*root))
+	if (!*root)
 		return (-1);
 	temp = *root;
 	*root = (*root)->next;
@@ -69,7 +64,7 @@ int	pop(t_stack_node **root)
 
 int	peek(t_stack_node *root)
 {
-	if (is_empty(root))
+	if (!root)
 		return (-1);
 	return (root->data);
 }

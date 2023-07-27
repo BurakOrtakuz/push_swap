@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 10:04:11 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/27 16:23:26 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/07/28 01:57:04 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	rra(t_stack *stack, int print)
 	temp2->next = stack->head_a;
 	stack->head_a = temp2;
 	if (print)
-		ft_putstr_fd("rra\n",1);
+		ft_putstr_fd("rra\n", 1);
 }
 
 void	rrb(t_stack *stack, int print)
@@ -45,12 +45,12 @@ void	rrb(t_stack *stack, int print)
 	temp2->next = stack->head_b;
 	stack->head_b = temp2;
 	if (print)
-		ft_putstr_fd("rrb\n",1);
+		ft_putstr_fd("rrb\n", 1);
 }
 
 void	rrr(t_stack *stack)
 {
 	rra(stack, 0);
 	rrb(stack, 0);
-	ft_putstr_fd("rrr\n",1);
+	ft_putstr_fd("rrr\n", 1);
 }
