@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:17:20 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/27 16:26:40 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/07/27 18:53:59 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,11 +108,11 @@ void	print_all(t_stack *stack, int digit)
 		}
 		else
 		{
-			printf("   ");
+			printf("       ");
 		}
 		if (temp_b)
 		{
-			printf("%17d %3d",temp_b->data, temp_b->order);
+			printf("%13d %3d",temp_b->data, temp_b->order);
 			temp_b = temp_b->next;
 		}
 		printf("\n");

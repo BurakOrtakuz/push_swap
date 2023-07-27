@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:57:29 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/27 16:27:05 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/07/27 19:01:42 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int ac, char **av)
 		push_top(&stack->head_a, number, order);
 		av++;
 	}
-	print_all(stack, -1);
+	//print_all(stack, -1);
 	if(digit_max < 45)
 	{
 		sort_selection(stack, digit_max);
@@ -58,5 +58,5 @@ int	main(int ac, char **av)
 		push_swap(stack, digit_max);
 	}
 	//printf("%d",r_or_rr(stack->head_a, 10));
-	print_all(stack, -1);
+	//print_all(stack, -1);
 }
