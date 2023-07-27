@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: burak <burak@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:52:05 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/26 14:31:39 by burak            ###   ########.fr       */
+/*   Updated: 2023/07/27 02:23:48 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,13 @@ void	push_swap(t_stack *stack, int max_digit)
 
 	j = 1;
 	digit = 1;
-	while (j <= max_digit * 4)
+	while (j <= max_digit)
 	{
 		i = 0;
 		lenght = len(stack->head_a);
 		while (i < lenght)
 		{
-			if (!check_bits(stack->head_a->data, digit))
+			if (!check_bits(stack->head_a->order, digit))
 			{
 				pb(stack);
 			}
@@ -87,10 +87,22 @@ void	push_swap(t_stack *stack, int max_digit)
 				ra(stack, 1);
 			i++;
 		}
-		stack_b_emptyier(stack,j);
+		i = 0;
+		lenght = len(stack->head_b);
+		while (i < lenght)
+		{
+			if (check_bits(stack->head_b->order, digit * 2))
+				pa(stack);
+			else if(stack->head_b->next)
+				rb(stack,1);
+			i++;
+		}
+		//stack_b_emptyier(stack,j);
 		j++;
 		digit *= 2;
 	}
+	while (stack->head_b)
+		pa(stack);
 }
 
 void	print_all(t_stack *stack, int digit)
@@ -111,7 +123,7 @@ void	print_all(t_stack *stack, int digit)
 	{
 		if (temp_a)
 		{
-			printf("%3d ",temp_a->data);		
+			printf("%3d %3d",temp_a->data, temp_a->order);		
 			temp_a = temp_a->next;
 		}
 		else
@@ -120,7 +132,7 @@ void	print_all(t_stack *stack, int digit)
 		}
 		if (temp_b)
 		{
-			printf("%17d",temp_b->data);
+			printf("%17d %3d",temp_b->data, temp_b->order);
 			temp_b = temp_b->next;
 		}
 		printf("\n");

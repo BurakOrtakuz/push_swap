@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: burak <burak@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:17:20 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/15 20:56:04 by burak            ###   ########.fr       */
+/*   Updated: 2023/07/27 01:33:48 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	digit_calculate(int data)
 	i = 0;
 	while (data != 0)
 	{
-		data /= 10;
+		data = data >> 1;
 		i++;
 	}
 	return (i);

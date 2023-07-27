@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: burak <burak@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:57:29 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/26 14:29:35 by burak            ###   ########.fr       */
+/*   Updated: 2023/07/27 02:24:04 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ int	main(int ac, char **av)
 	while(*++av)
 	{
 		int number = ft_atoi(*av);
-		printf(" %d\n", biggest_bit(number));	
+		printf(" %d%d%d\n", biggest_bit(number),5,5);	
 	}
 	*/
 	t_stack_node	*j;
 	t_stack			*stack;
 	int				digit_max;
+	int				number;
+	int				order;
 
 	digit_max = 0;
 	stack = (t_stack *)malloc(sizeof(t_stack));
@@ -35,18 +37,24 @@ int	main(int ac, char **av)
 		av++;
 	while (*av)
 	{
-		if (digit_max < digit_calculate(ft_atoi(*av)))
-			digit_max = digit_calculate(ft_atoi(*av));
+		order = 0;
+		number = ft_atoi(*av);
+		digit_max++;
 		j = stack->head_a;
 		while (j)
 		{
-			if (j->data == ft_atoi(*av))
+			if (j->data == number)
 				error(stack);
+			else if (number < j->data)
+				j->order++;
+			else 
+				order++;
 			j = j->next;
 		}
-		push(&stack->head_a, ft_atoi(*av));
+		push_top(&stack->head_a, number, order);
 		av++;
 	}
+	digit_max = digit_calculate(digit_max);
 	//print_all(stack, -1);
 	push_swap(stack, digit_max);
 	//print_all(stack, -1);
