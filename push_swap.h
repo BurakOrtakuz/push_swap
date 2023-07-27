@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: burak <burak@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:20:29 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/22 15:38:55 by burak            ###   ########.fr       */
+/*   Updated: 2023/07/27 16:18:59 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ void	printBits(size_t const size, void const *const ptr);
 int		biggest_bit(int data);
 void	stack_b_emptyier(t_stack *stack, int digit);
 int		len(t_stack_node *head);
+int		r_or_rr(t_stack_node *head, int order);
+void	sort_selection(t_stack *stack, int lenght);
+int		selection_helper(t_stack *stack, int i);
+int		is_sorted(t_stack_node *head);
+int		is_reverse_sorted(t_stack_node *head);
 
 void	sa(t_stack *stack, int print);
 void	sb(t_stack *stack, int print);

@@ -6,13 +6,16 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:17:20 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/27 01:33:48 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/07/27 16:26:40 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include "push_swap.h"
+#include "stack.h"
+
 int	ft_atoi(const char *str)
 {
 	int	signature;
@@ -67,6 +70,7 @@ int	digit_calculate(int data)
 	}
 	return (i);
 }
+
 void printBits(size_t const size, void const * const ptr)
 {
     unsigned char *b = (unsigned char*) ptr;
@@ -79,4 +83,39 @@ void printBits(size_t const size, void const * const ptr)
             printf("%u", byte);
         }
     }
+}
+
+void	print_all(t_stack *stack, int digit)
+{
+	t_stack_node	*temp_a;
+	t_stack_node	*temp_b;
+
+	temp_a = stack->head_a;
+	temp_b = stack->head_b;
+	printf("  A                B\n-----            -----\n");
+	if (temp_a && digit > 0)
+	{
+		printBits(sizeof(int), &temp_a->data);
+		printf(" %d %d\n",temp_a->data, check_bits(temp_a->data, digit));
+	}
+
+	while (temp_a || temp_b)
+	{
+		if (temp_a)
+		{
+			printf("%3d %3d",temp_a->data, temp_a->order);		
+			temp_a = temp_a->next;
+		}
+		else
+		{
+			printf("   ");
+		}
+		if (temp_b)
+		{
+			printf("%17d %3d",temp_b->data, temp_b->order);
+			temp_b = temp_b->next;
+		}
+		printf("\n");
+	}
+	printf("\n");
 }

@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:57:29 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/27 02:24:04 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/07/27 16:27:05 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,6 @@
 
 int	main(int ac, char **av)
 {
-	/*
-	while(*++av)
-	{
-		int number = ft_atoi(*av);
-		printf(" %d%d%d\n", biggest_bit(number),5,5);	
-	}
-	*/
 	t_stack_node	*j;
 	t_stack			*stack;
 	int				digit_max;
@@ -54,8 +47,16 @@ int	main(int ac, char **av)
 		push_top(&stack->head_a, number, order);
 		av++;
 	}
-	digit_max = digit_calculate(digit_max);
-	//print_all(stack, -1);
-	push_swap(stack, digit_max);
-	//print_all(stack, -1);
+	print_all(stack, -1);
+	if(digit_max < 45)
+	{
+		sort_selection(stack, digit_max);
+	}
+	else
+	{
+		digit_max = digit_calculate(digit_max);
+		push_swap(stack, digit_max);
+	}
+	//printf("%d",r_or_rr(stack->head_a, 10));
+	print_all(stack, -1);
 }

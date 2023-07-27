@@ -1,30 +1,25 @@
 NAME = push_swap_library.a
 FLAG = -Wall -Wextra -Werror
-SRC = error_management.c \
-		ft_split.c \
-		push_swap.c \
+SRC = stack.c \
 		r_operators.c \
 		rr_operators.c \
 		s_p_operators.c \
-		stack.c \
-		utils.c
+		utils.c \
+		ft_split.c \
+		error_management.c \
+		sort_utils.c \
+		push_swap.c
 
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 $(NAME):
 	gcc $(FLAG) -c $(SRC)
-	ar rc $(NAME) *.o 
+	ar rc $(NAME) *.o
+	gcc $(FLAG) $(NAME) main.c
 clean:
 	/bin/rm -f  *.o
 fclean: clean
 	/bin/rm -f $(NAME)
 re: fclean all
-.PHONY: all bonus clean fclean reerror_management.c	\
-		ft_split.c	\
-		push_swap.c	\
-		r_operators.c	\
-		rr_operators.c	\
-		s_p_operators.c	\
-		stack.c	\ 
-		utils.c
+.PHONY: all bonus clean fclean reerror_management.c

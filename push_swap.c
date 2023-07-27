@@ -6,62 +6,28 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:52:05 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/27 02:23:48 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/07/27 18:32:05 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "stdio.h"
 
-void	stack_b_emptyier(t_stack *stack,  int digit)
-{
-	int				i;
-	int				j;
-	t_stack_node	*temp;
-
-	temp = stack->head_b;
-	i = 0;
-	while (temp)
-	{
-		if (temp->data >= digit)
-		{
-			j = i + 1;
-			while (--j > 0 && temp->next)
-				rb(stack, 1);
-			pa(stack);
-			if (!stack->head_b)
-				break ;
-			j = i + 1;
-			while (--j > 0 && temp->next)
-				rrb(stack, 1);
-			temp = stack->head_b;
-		}
-		else
-			temp = temp->next;
-		i++;
-	}
-}
-
-int	check_bits(int data, int digit)
-{
-	if ((data & digit) == digit)
-	{
-		return (1);
-	}
-	return (0);
-}
-
-int	len(t_stack_node *head)
+void	stack_b_emptyier(t_stack *stack, int digit)
 {
 	int	i;
+	int	lenght;
 
 	i = 0;
-	while (head)
+	lenght = len(stack->head_b);
+	while (i < lenght)
 	{
-		head = head->next;
+		if (check_bits(stack->head_b->order, digit * 2))
+			pa(stack);
+		else if (stack->head_b->next)
+			rb(stack, 1);
 		i++;
 	}
-	return (i);
 }
 
 void	push_swap(t_stack *stack, int max_digit)
@@ -71,71 +37,66 @@ void	push_swap(t_stack *stack, int max_digit)
 	int				j;
 	int				lenght;
 
-	j = 1;
+	j = 0;
 	digit = 1;
-	while (j <= max_digit)
+	while (++j <= max_digit)
 	{
 		i = 0;
 		lenght = len(stack->head_a);
 		while (i < lenght)
 		{
 			if (!check_bits(stack->head_a->order, digit))
-			{
 				pb(stack);
-			}
 			else if (stack->head_a->next)
 				ra(stack, 1);
 			i++;
 		}
-		i = 0;
-		lenght = len(stack->head_b);
-		while (i < lenght)
-		{
-			if (check_bits(stack->head_b->order, digit * 2))
-				pa(stack);
-			else if(stack->head_b->next)
-				rb(stack,1);
-			i++;
-		}
-		//stack_b_emptyier(stack,j);
-		j++;
+		stack_b_emptyier(stack, digit);
 		digit *= 2;
 	}
 	while (stack->head_b)
 		pa(stack);
 }
 
-void	print_all(t_stack *stack, int digit)
+void	sort_selection(t_stack *stack, int lenght)
 {
-	t_stack_node	*temp_a;
-	t_stack_node	*temp_b;
+	int				i;
 
-	temp_a = stack->head_a;
-	temp_b = stack->head_b;
-	printf("  A                B\n-----            -----\n");
-	if (temp_a && digit > 0)
+	i = 0;
+	while (i < lenght - 1)
 	{
-		printBits(sizeof(int), &temp_a->data);
-		printf(" %d %d\n",temp_a->data, check_bits(temp_a->data, digit));
+		if (selection_helper(stack, r_or_rr(stack->head_a, i)) < 0)
+			break ;
+		i++;
 	}
+	while (stack->head_b)
+		pa(stack);
+}
 
-	while (temp_a || temp_b)
+int	selection_helper(t_stack *stack, int i)
+{
+	if (i < 0)
 	{
-		if (temp_a)
+		while (i != 0)
 		{
-			printf("%3d %3d",temp_a->data, temp_a->order);		
-			temp_a = temp_a->next;
+			rra(stack, 1);
+			i++;
 		}
-		else
-		{
-			printf("   ");
-		}
-		if (temp_b)
-		{
-			printf("%17d %3d",temp_b->data, temp_b->order);
-			temp_b = temp_b->next;
-		}
-		printf("\n");
+		if (is_sorted(stack->head_a))
+			return (0);
+		pb(stack);
 	}
-	printf("\n");
+	else
+	{
+		while (i != 0)
+		{
+			printf("%d",i);
+			ra(stack, 1);
+			i--;
+		}
+		if (is_sorted(stack->head_a))
+			return (0);
+		pb(stack);
+	}
+	return (1);
 }
