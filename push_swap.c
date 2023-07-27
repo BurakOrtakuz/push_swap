@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:52:05 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/27 21:56:12 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/07/27 21:58:11 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,6 @@ void	sort_selection(t_stack *stack, int lenght)
 	i = 0;
 	while (i < lenght - 1)
 	{
-		print_all(stack,-1);
-		printf("%d %d\n",i,r_or_rr(stack->head_a, i));
 		if (!selection_helper(stack, r_or_rr(stack->head_a, i)))
 			break ;
 		i++;
