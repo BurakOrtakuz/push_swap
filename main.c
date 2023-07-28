@@ -6,7 +6,7 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:57:29 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/28 01:52:21 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/07/28 08:43:40 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,5 @@ int	main(int ac, char **av)
 		digit_max = digit_calculate(digit_max);
 		push_swap(stack, digit_max);
 	}
+	free(stack);
 }
