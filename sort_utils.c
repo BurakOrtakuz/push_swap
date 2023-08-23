@@ -6,11 +6,11 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 16:20:00 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/28 01:17:10 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/23 15:53:41 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "stack.h"
 #include "push_swap.h"
 
 int	check_bits(int data, int digit)
@@ -49,6 +49,30 @@ int	is_sorted(t_stack_node *head)
 	}
 	if (temp->next || temp->order != temp_order)
 		return (0);
+	return (1);
+}
+
+int	is_full_sorted(t_stack *stack)
+{
+	t_stack_node	*a;
+	t_stack_node	*b;
+
+	a = stack->head_a;
+	b = stack->head_b;
+	if ((a && b) && (a->order && b->order) && (a->order < b->order))
+		return (0);
+	while (stack->head_b && b->next)
+	{
+		if (b->order < b->next->order)
+			return (0);
+		b = b->next;
+	}
+	while (stack->head_a && a->next)
+	{
+		if (a->order > a->next->order)
+			return (0);
+		a = a->next;
+	}
 	return (1);
 }
 

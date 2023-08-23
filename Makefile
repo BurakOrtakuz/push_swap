@@ -8,14 +8,15 @@ SRC = stack.c \
 		ft_split.c \
 		error_management.c \
 		sort_utils.c \
-		push_swap.c
+		push_swap.c \
+		check_data.c
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRC:.c=.o)  
 
 all: $(NAME)
 $(NAME):
 	gcc $(FLAG) -c $(SRC)
-	gcc $(FLAG) $(OBJ) main.c -o $(NAME) 
+	gcc $(FLAG) $(OBJ) main.c -o $(NAME)
 clean:
 	/bin/rm -f  *.o
 fclean: clean

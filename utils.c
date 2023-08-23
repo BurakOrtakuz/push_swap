@@ -6,15 +6,11 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:17:20 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/28 01:58:05 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/23 17:08:24 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include "push_swap.h"
-#include "stack.h"
 
 int	ft_atoi(const char *str)
 {
@@ -69,4 +65,18 @@ int	digit_calculate(int data)
 		i++;
 	}
 	return (i);
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] || s2[i])
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (0);
 }

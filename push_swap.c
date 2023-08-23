@@ -6,12 +6,11 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:52:05 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/28 01:04:53 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/23 15:47:14 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "stdio.h"
 
 void	stack_b_emptyier(t_stack *stack, int digit)
 {
@@ -39,11 +38,11 @@ void	push_swap(t_stack *stack, int max_digit)
 
 	j = 0;
 	digit = 1;
-	while (++j <= max_digit)
+	while (++j <= max_digit && !is_full_sorted(stack))
 	{
 		i = 0;
 		lenght = len(stack->head_a);
-		while (i < lenght)
+		while (i < lenght && !is_full_sorted(stack))
 		{
 			if (!check_bits(stack->head_a->order, digit))
 				pb(stack);

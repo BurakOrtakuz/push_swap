@@ -6,15 +6,14 @@
 /*   By: bortakuz <bortakuz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 09:57:29 by bortakuz          #+#    #+#             */
-/*   Updated: 2023/07/28 08:43:40 by bortakuz         ###   ########.fr       */
+/*   Updated: 2023/08/23 17:37:57 by bortakuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "push_swap.h"
 #include <stdlib.h>
 
-int	read_data(char **av, t_stack **stack, int digit_max)
+static int	read_data(char **av, t_stack **stack, int digit_max)
 {
 	t_stack_node	*j;
 	int				order;
@@ -49,22 +48,22 @@ int	main(int ac, char **av)
 
 	digit_max = 0;
 	stack = (t_stack *)malloc(sizeof(t_stack));
+	if (!stack)
+		return (0);
 	if (ac == 2)
 		av = ft_split(av[1], ' ');
 	else
 		av++;
+	check_data(av);
 	digit_max = read_data(av, &stack, digit_max);
-	if (digit_max < 45)
-	{
-		if (digit_max == 3)
-			small_sort(stack);
-		else
-			sort_selection(stack, digit_max);
-	}
+	if (digit_max == 3)
+		small_sort(stack);
+	else if (digit_max < 45)
+		sort_selection(stack, digit_max);
 	else 
 	{
 		digit_max = digit_calculate(digit_max);
 		push_swap(stack, digit_max);
 	}
-	free(stack);
+	free_stack(stack);
 }
